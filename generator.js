@@ -21,3 +21,5 @@ function traverse(node, result) {
 traverse(data, resultJson);
 
 console.log(JSON.stringify(resultJson, null, 2));
+
+fs.writeFileSync('data.json', JSON.stringify(resultJson, null, 2));

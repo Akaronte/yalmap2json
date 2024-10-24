@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form from JSON Schema</title>
+</head>
+<body>
+    <h1>Form from JSON Schema</h1>
+    <form id="dynamic-form"></form>
+
+    <script>
+        const jsonSchema = {
+            "title": "User",
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "title": "First Name"
+                },
+                "lastName": {
+                    "type": "string",
+                    "title": "Last Name"
+                },
+                "age": {
+                    "type": "integer",
+                    "title": "Age"
+                },
+                "email": {
+                    "type": "string",
+                    "title": "Email"
+                }
+            },
+            "required": ["firstName", "lastName", "email"]
+        };
+
+        function generateForm(schema, formElement) {
+            for (const key in schema.properties) {
+                const field = schema.properties[key];
+                const label = document.createElement('label');
+                label.textContent = field.title;
+                label.htmlFor = key;
+
+                let input;
+                if (field.type === 'string' || field.type === 'integer') {
+                    input = document.createElement('input');
+                    input.type = field.type === 'integer' ? 'number' : 'text';
+                }
+
+                input.id = key;
+                input.name = key;
+                if (schema.required && schema.required.includes(key)) {
+                    input.required = true;
+                }
+
+                formElement.appendChild(label);
+                formElement.appendChild(input);
+                formElement.appendChild(document.createElement('br'));
+            }
+        }
+
+        const formElement = document.getElementById('dynamic-form');
+        generateForm(jsonSchema, formElement);
+    </script>
+</body>
+</html>
