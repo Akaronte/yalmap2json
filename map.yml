@@ -1,26 +1,23 @@
-key: ES
-type: string
-prebid: number
-value: "soy padre hola mundo"
-required: true
-min: 1
-max: 100
-children:
-  - key: hijo
+title: user
+type: object
+properties:
+  - firstName:
+    type: string
+    title: First Name
+  - lastName:
+    type: string
+    title: Last Name
+  - address:
+    type: string
+    title: Address
+  - age:
     type: number
-    value: 110
-    required: false
-    children:
-      - key: nietoA
-        type: string
-        value: "nietoA"
-        required: true
-      - key: nietoB
-        type: string
-        value: "nietoB"
-        required: false
-
-
+    title: Age
+required:
+  - firstName
+  - lastName
+  - address
+  - age
 
 
 

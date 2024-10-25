@@ -1,31 +1,32 @@
 {
-  "key": "padre",
-  "type": "string",
-  "prebid": "number",
-  "value": "soy padre hola mundo",
-  "required": true,
-  "min": 1,
-  "max": 100,
-  "children": [
+  "title": "user",
+  "type": "object",
+  "properties": [
     {
-      "key": "hijo",
+      "firstName": null,
+      "type": "string",
+      "title": "First Name"
+    },
+    {
+      "lastName": null,
+      "type": "string",
+      "title": "Last Name"
+    },
+    {
+      "address": null,
+      "type": "string",
+      "title": "Address"
+    },
+    {
+      "age": null,
       "type": "number",
-      "value": 110,
-      "required": false,
-      "children": [
-        {
-          "key": "nietoA",
-          "type": "string",
-          "value": "nietoA",
-          "required": true
-        },
-        {
-          "key": "nietoB",
-          "type": "string",
-          "value": "nietoB",
-          "required": false
-        }
-      ]
+      "title": "Age"
     }
+  ],
+  "required": [
+    "firstName",
+    "lastName",
+    "address",
+    "age"
   ]
 }
