@@ -1,5 +1,6 @@
-key: padre
+key: ES
 type: string
+prebid: number
 value: "soy padre hola mundo"
 required: true
 min: 1
